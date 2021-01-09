@@ -27,8 +27,7 @@ def main():
                         print(f"Invalid command: {command_string}")
                 else:
                     def func(argv):
-                        file = open(f"{cmd}.py").read()
-                        exec(file)
+                        exec(open(f"{cmd}.py").read())
                         return locals()["main"](argv)
 
                     child = yield NewProcess(func(argv))
